@@ -110,8 +110,8 @@ def login(uname, upassword):
 def qiandao():
     headers['Referer'] = spaceurl
     #这里需要改一下：------------------------------------2022-12-15------------------------------------------------
-    #ret = r.get('https://www.4ksj.com/qiandao/', headers = headers).text
-    ret = r.get('这段搞不定的话请私信...', headers = headers).text
+    ret = r.get('https://www.4ksj.com/qiandao/', headers = headers).text
+    # ret = r.get('这段搞不定的话请私信...', headers = headers).text
     time.sleep(1)
     formhash = re.findall(r'action=logout&amp;formhash=(.*?)"', ret)[0]
     print('准备签到：获取到签到页formhash: ' + formhash)
@@ -124,10 +124,12 @@ def qiandao():
     del headers['Upgrade-Insecure-Requests']
 
     #这里需要改一下：------------------------------------2022-12-15------------------------------------------------
-    #ret = r.get('https://www.4ksj.com//qiandao/?mod=sign&operation=list&inajax=1&ajaxtarget=ranklist', headers = headers).text
-    #time.sleep(1)
-    #ret = r.get('https://www.4ksj.com//qiandao/?mod=sign&operation=qiandao&formhash=' + formhash + '&format=empty&inajax=1&ajaxtarget=', headers = headers).text
-    ret = r.get('https://www.4ksj.com/qiandao.php?sign=' + formhash , headers = headers).text
+    ret = r.get('https://www.4ksj.com//qiandao/?mod=sign&operation=list&inajax=1&ajaxtarget=ranklist', headers = headers).text
+    print("127" + str(ret))
+    time.sleep(1)
+    ret = r.get('https://www.4ksj.com//qiandao/?mod=sign&operation=qiandao&formhash=' + formhash + '&format=empty&inajax=1&ajaxtarget=', headers = headers).text
+    print("130" + str(ret))
+    # ret = r.get('https://www.4ksj.com/qiandao.php?sign=' + formhash , headers = headers).text
     time.sleep(1)
     if '今日已签' in ret:
         print('签到结果：今日已签')
