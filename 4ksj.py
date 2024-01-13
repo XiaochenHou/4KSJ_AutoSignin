@@ -5,10 +5,11 @@ import sys
 import time
 from urllib.parse import urlencode
 from urllib.parse import quote
+import os
 
 # global variables
-uname = 'houxiaochen01@gmail.com'            # username，需要修改成自己的登录用户名！！！！！！！！！！！！！！！！！！！！
-upassword = 'Hz6wjnN7WXED@ir'         # password，需要修改成自己的密码！！！！！！！！！！！！！！！！！！！！！！！
+uname = os.environ['USERNAME']
+upassword = os.environ['PASSWORD']
 sever_jiang_send_key = ''    #server酱的send_key,如需微信通知功能，可填写此项；如果不需要通知，可以留空''
 plusplus_token=''            #plusplus推送加的token，如需通知功能，可填写此项；如果不需要通知，可以留空''
 loginhash = ''
