@@ -2,7 +2,7 @@ name: Scheduled Python Script
 
 on:
   schedule:
-    - cron: '00 20 * * *'  # Runs at 20:00 UTC, which is 3 AM in China (UTC+8)
+    - cron: '00 21 * * *'  # Runs at 20:00 UTC, which is 3 AM in China (UTC+8)
   workflow_dispatch:  # This line enables manual triggering
 
 jobs:
